@@ -131,7 +131,7 @@ void AudioIO::speak(const String& text, const String& provider,
                                   100 / portTICK_PERIOD_MS);
         // crude peak for the mouth
         int32_t peak = 0; for (int i=0;i<256;++i){int a=abs(chunk[i]); if(a>peak)peak=a;}
-        if (ampCb) ampCb((uint8_t)min(255, peak >> 7));
+      if (ampCb) ampCb((uint8_t)min(255, (int)(peak >> 7)));
         idx = 0;
       }
     }
