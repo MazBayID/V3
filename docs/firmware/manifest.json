@@ -1,0 +1,15 @@
+{
+  "name": "Dasai Mochi Bot",
+  "version": "1.0.0",
+  "new_install_prompt_erase": true,
+  "builds": [
+    {
+      "chipFamily": "ESP32-C3",
+      "parts": [
+        { "path": "dasai_mochi_bot.ino.bootloader.bin", "offset": 0 },
+        { "path": "dasai_mochi_bot.ino.partitions.bin", "offset": 32768 },
+        { "path": "dasai_mochi_bot.ino.bin", "offset": 65536 }
+      ]
+    }
+  ]
+}
