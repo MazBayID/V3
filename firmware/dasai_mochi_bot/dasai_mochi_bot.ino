@@ -60,7 +60,13 @@ bool   assistantMode = true;      // false = pure silly-faces toy
 uint32_t lastInteract = 0;
 
 // --- button debounce --------------------------------------------------------
-struct Btn { uint8_t pin; bool last=false; uint32_t t=0; };
+struct Btn { 
+  uint8_t pin; 
+  bool last=false; 
+  uint32_t t=0; 
+  Btn(uint8_t p) : pin(p) {} 
+};
+
 Btn bMain{PIN_TOUCH_MAIN}, bNext{PIN_TOUCH_NEXT}, bMode{PIN_TOUCH_MODE};
 bool pressed(Btn& b) {
   bool now = digitalRead(b.pin);
