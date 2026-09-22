@@ -26,7 +26,7 @@ then pulls goofy faces when you leave it alone. <b>Flash it from your browser. N
 </p>
 
 <p>
-  <a href="https://zero-state-logic.github.io/Dasai-mochi-dextop-buddy/"><b>⚡&nbsp;&nbsp;Flash your Mochi</b></a>
+  <a href="https://zero-state-logic.github.io/Dasai-mochi-dextop-buddy/"><b>⚡&nbsp;&nbsp; The Original version</b></a>
   &nbsp;·&nbsp;
   <a href="#-wiring">🔌&nbsp;Wiring</a>
   &nbsp;·&nbsp;
@@ -162,15 +162,15 @@ Everything runs at **3.3V**. Default pins live in [`config.h`](firmware/dasai_mo
 **OLED (I2C)**
 | signal | GPIO |
 |---|---|
-| SDA | `4` |
-| SCL | `5` |
+| SDA | `21` |
+| SCL | `20` |
 
 **Mic — INMP441 (I2S)**
 | signal | GPIO |
 |---|---|
-| SCK | `0` |
-| WS | `1` |
-| SD | `2` |
+| SCK | `1` |
+| WS | `2` |
+| SD | `8` |
 | L/R | `GND` |
 
 </td>
@@ -179,17 +179,17 @@ Everything runs at **3.3V**. Default pins live in [`config.h`](firmware/dasai_mo
 **Speaker — MAX98357A (I2S)**
 | signal | GPIO |
 |---|---|
-| BCLK | `6` |
-| LRC | `7` |
-| DIN | `8` |
+| BCLK | `1` |
+| LRC | `2` |
+| DIN | `5` |
 | SD | `3V3` |
 
 **Touch buttons (TTP223)**
 | button | GPIO | job |
 |---|---|---|
 | TALK | `3` | push-to-talk |
-| NEXT | `18` | next face |
-| MODE | `19` | mode toggle |
+| NEXT | `6` | next face |
+| MODE | `7` | mode toggle |
 
 </td>
 </tr>
@@ -197,7 +197,6 @@ Everything runs at **3.3V**. Default pins live in [`config.h`](firmware/dasai_mo
 
 > ⚠️ **Reserved on the C3-Zero — don't use:** `GPIO9` (BOOT), `GPIO10` (onboard RGB LED),
 > `GPIO12–17` (onboard flash). The pins above already avoid all of them.
-> 👉 **[Interactive pin diagram on the project site →](https://zero-state-logic.github.io/Dasai-mochi-dextop-buddy/#wiring)**
 
 Full step-by-step: **[`hardware/WIRING.md`](hardware/WIRING.md)**
 
@@ -211,9 +210,9 @@ Full step-by-step: **[`hardware/WIRING.md`](hardware/WIRING.md)**
 
 ### 🙂 For users — no coding
 
-1. Open the **[flash page](https://zero-state-logic.github.io/Dasai-mochi-dextop-buddy/)** in **Chrome / Edge / Opera**.
+1. Open the **[flash page](https://web.esphome.io/)** in **Chrome / Edge / Opera**.
 2. **Hold BOOT** while plugging in USB-C (flash mode).
-3. Click **Connect & Flash**, pick the port, confirm.
+3. Click **Connect**, pick the port, upload file DasaiMochi-SuperMini-merged.bin, and **Flash**.
 4. The bot makes a WiFi network: **`DasaiMochi-Setup`**.
 5. Join it → a setup page opens → enter WiFi + your AI key. 🍡
 
