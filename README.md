@@ -195,9 +195,6 @@ Everything runs at **3.3V**. Default pins live in [`config.h`](firmware/dasai_mo
 </tr>
 </table>
 
-> ⚠️ **Reserved on the C3-Zero — don't use:** `GPIO9` (BOOT), `GPIO10` (onboard RGB LED),
-> `GPIO12–17` (onboard flash). The pins above already avoid all of them.
-
 Full step-by-step: **[`hardware/WIRING.md`](hardware/WIRING.md)**
 
 ---
