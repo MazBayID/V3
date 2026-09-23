@@ -58,7 +58,7 @@
 // ---------------------------------------------------------------------------
 #define MIC_SAMPLE_RATE   16000      // 16 kHz mono is the STT sweet spot
 #define SPK_SAMPLE_RATE   16000
-#define RECORD_MAX_SECS   4          // hard cap on a single utterance; keeps runtime RAM practical
+#define RECORD_MAX_SECS   2          // hard cap on a single utterance; keeps runtime RAM practical
 
 // ---------------------------------------------------------------------------
 //  CAPTIVE PORTAL / PROVISIONING
