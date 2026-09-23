@@ -130,26 +130,34 @@ bool readExact(
 
   while (received < length) {
 
-    while (client.available()) {
+    size_t available = client.available();
 
-      int c = client.read();
-
-      if (c < 0) {
-        break;
+    if (available > 0) {
+      // Tentukan jumlah byte yang akan dibaca dalam satu tarikan
+      size_t bytesToRead = available;
+      if (received + bytesToRead > length) {
+        bytesToRead = length - received;
       }
 
-      buffer[received++] = (uint8_t)c;
-      lastData = millis();
+      // Membaca data dalam bentuk BLOK (sangat cepat)
+      int bytesRead = client.read(buffer + received, bytesToRead);
 
-      if (received >= length) {
-        return true;
+      if (bytesRead > 0) {
+        received += bytesRead;
+        lastData = millis();
       }
     }
 
+    if (received >= length) {
+      return true;
+    }
+
+    // Jika klien terputus dan tidak ada sisa data yang bisa dibaca
     if (!client.connected() && !client.available()) {
       return false;
     }
 
+    // Jika waktu habis
     if (millis() - lastData > timeoutMs) {
       return false;
     }
@@ -159,7 +167,6 @@ bool readExact(
 
   return true;
 }
-
 
 // -----------------------------------------------------------------------------
 // Little-endian helpers
